@@ -1,0 +1,9 @@
+{
+   "appname" : "gongfu",
+   "http_port" : "",
+   "server" : "localhost",
+   "db_server" : "localhost",
+   "db_name" : "gongfu",
+   "db_user" : "gongfu",
+   "db_password" : "kungfupanda"
+}

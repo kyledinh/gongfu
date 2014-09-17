@@ -1,0 +1,17 @@
+*~
+*.class
+*.log
+*.swp
+*.swo
+*.iml
+*.DS_store
+
+.idea
+.vagrant
+
+build/
+dist/
+node_modules
+test/snapshots/*.png
+
+gongfuServer

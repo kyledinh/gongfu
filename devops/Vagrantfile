@@ -1,0 +1,22 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# Vagrantfile API/syntax version. Don't touch unless you know what you're doing!
+VAGRANTFILE_API_VERSION = "2"
+
+Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
+  # Ubuntu-13.10
+  config.vm.box = "Ubuntu-13.10"
+  config.vm.box_url = "http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_ubuntu-13.10_chef-provisionerless.box"
+  config.vm.synced_folder "../.", "/home/vagrant/code"  
+  config.ssh.forward_x11 = true
+  config.vm.network "forwarded_port", guest: 8000, host: 8000, auto_correct: true
+  config.vm.network "forwarded_port", guest: 3000, host: 3000, auto_correct: true
+  config.vm.network "forwarded_port", guest: 5432, host: 5432, auto_correct: true
+  config.vm.network "private_network", ip: "192.168.10.10"
+  config.vm.provider :virtualbox do |virtualbox|
+    virtualbox.customize ["modifyvm", :id, "--name", "gongfu"] # Name the INSTANCE (app), make unique
+    virtualbox.customize ["modifyvm", :id, "--memory", "2048"]
+  end
+  config.vm.provision :shell, :path => "ubuntu-13.10-64-install.sh"  
+end
