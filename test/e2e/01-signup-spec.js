@@ -31,6 +31,12 @@ describe('gongfu page', function() {
 
         });
 
+        it('chirps', function() {
+            element(by.css('[class="btn btn-xs btn-success glyphicon glyphicon-plus"]')).click();     
+            element(by.id('neu-type')).sendKeys(token);                   
+            element(by.id('neu-message')).sendKeys(token);                   
+            element(by.id('neu-chirp')).click();     
+        });
 
     });
 });

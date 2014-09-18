@@ -132,7 +132,7 @@
             <form role="form">
                 <div class="form-group">
                     <label for="account-name">Type</label>
-                    <input type="text" class="form-control" ng-model="neu.type" id="new-type">
+                    <input type="text" class="form-control" ng-model="neu.type" id="neu-type">
                 </div>   
                 <div class="form-group">
                     <label for="account-email">Message</label>
@@ -142,7 +142,7 @@
 
         </div><!-- modal-body -->
         <div class="modal-footer">
-            <button class="btn btn-primary" ng-click="postChirp()">Chirp!</button>
+            <button class="btn btn-primary" id="neu-chirp" ng-click="postChirp()">Chirp!</button>
             <button class="btn" ng-click="closeMod('mod-new-chirp')">Cancel</button>            
         </div>
 
