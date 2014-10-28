@@ -1,6 +1,8 @@
 # Gongfu
 
-Gongfu is a mashup of Go and (ng) Angular used together to build a website. This template will get you started to build a Smart Angular Client and a RESTful API Go server. This template uses Vagrant/VirtualBox to build a virtual environment and NodeJS/Grunt to do task building.  
+Gongfu is a mashup of Go and (ng) Angular used together to build a website. This template will get you started to build a Smart Angular Client and a RESTful API Go server. This template uses Vagrant/VirtualBox to build a virtual environment and NodeJS/Grunt to do task building.
+
+This is the source code to a presentation I gave at the SF Golang meetup in Sept. Here's the link to it: http://www.hakkalabs.co/articles/angularjs-go-lean-combination#!
 
 ## App Stack
 * Ubuntu 13.10 64 bit (http://www.ubuntu.com/)
