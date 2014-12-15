@@ -4,6 +4,8 @@ Gongfu is a mashup of Go and (ng) Angular used together to build a website. This
 
 This is the source code to a presentation I gave at the SF Golang meetup in Sept. Here's the link to it: http://www.hakkalabs.co/articles/angularjs-go-lean-combination#!
 
+[![VIDEO](http://img.youtube.com/vi/0arV-k8OPMg/0.jpg)](http://www.youtube.com/watch?v=0arV-k8OPMg)
+
 ## App Stack
 * Ubuntu 13.10 64 bit (http://www.ubuntu.com/)
 * Go 1.3 (http://golang.org/)
