@@ -1,7 +1,7 @@
 language: go
 go: 1.3
-install: devops/go-packages.sh
+install: "devops/go-packages.sh"
 script:
-	- go test ./src/...
-	- go build -o gongfuServer
+  - "go test ./src/..."
+  - "go build -o gongfuServer"
 
