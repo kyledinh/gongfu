@@ -1,12 +1,12 @@
 package main
 
 import (
-	"./src/go/gongfu/api/spec"
-	"./src/go/gongfu/api/v1"
-	"./src/go/gongfu/cfg"
-	"./src/go/gongfu/util"
 	"errors"
 	"github.com/gin-gonic/gin"
+	"go/gongfu/api/spec"
+	"go/gongfu/api/v1"
+	"go/gongfu/cfg"
+	"go/gongfu/util"
 	"log"
 	"net/http"
 	"time"
