@@ -1,9 +1,9 @@
 package api
 
 import (
-	"../cfg"
-	"../model"
-	"../util"
+	"go/gongfu/cfg"
+	"go/gongfu/model"
+	"go/gongfu/util"
 	"log"
 	"testing"
 )

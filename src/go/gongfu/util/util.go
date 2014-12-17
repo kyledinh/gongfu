@@ -1,8 +1,8 @@
 package util
 
 import (
-	"../cfg"
-	"../sys"
+	"go/gongfu/cfg"
+	"go/gongfu/sys"
 	"code.google.com/p/go.crypto/bcrypt"
 	"crypto/rand"
 	"database/sql"

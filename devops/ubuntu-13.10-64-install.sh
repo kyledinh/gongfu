@@ -107,7 +107,7 @@ fn_install_go () {
     sudo chown -R vagrant:vagrant /opt
     wget -O - http://golang.org/dl/go1.3.linux-amd64.tar.gz | tar xzf - -C /opt/
     #wget -O - http://golang.org/dl/go1.3.linux-386.tar.gz | tar xzf - -C /opt/
-    echo export GOPATH=/home/vagrant/go >> ~/.profile
+    echo export GOPATH=/home/vagrant/code >> ~/.profile
     echo export GOROOT=/opt/go >> ~/.profile
     echo export PATH=$PATH:/opt/go/bin >> ~/.profile
     sudo -s source ~/.profile

@@ -44,7 +44,7 @@ module.exports = function(grunt) {
 
     go: {
       options: {
-        GOPATH: ["../../go", "../go"]
+	GOPATH: ["./", "/home/vagrant/code"]
       },
       myapp: {
         root: './', 

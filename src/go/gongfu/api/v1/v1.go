@@ -1,13 +1,12 @@
 package v1
 
 import (
-	"../../cfg"
-	"../../model"
-	"../../sys"
-	"../../util"
+	"go/gongfu/cfg"
+	"go/gongfu/model"
+	"go/gongfu/sys"
+	"go/gongfu/util"
 	"code.google.com/p/go.crypto/bcrypt"
 	"encoding/json"
-	//"fmt"
 	"github.com/gin-gonic/gin"
 	"io/ioutil"
 	"log"

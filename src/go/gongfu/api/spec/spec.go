@@ -1,7 +1,7 @@
 package spec
 
 import (
-	"../../model"
+	"go/gongfu/model"
 	"github.com/gin-gonic/gin"
 	. "strconv"
 )

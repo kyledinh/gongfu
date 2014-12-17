@@ -14,4 +14,8 @@ dist/
 node_modules
 test/snapshots/*.png
 
+pkg/
+src/code.google.com
+src/github.com
+
 gongfuServer
