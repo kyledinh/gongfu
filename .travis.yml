@@ -4,6 +4,7 @@ install:
   - "cp -rf src/* /home/travis/gopath/src/."
   - "devops/go-packages.sh"
 script:
-  - "go test ./src/..."
+  - "go test ./src/go/gongfu/cfg/..."
+  - "go test ./src/go/gongfu/util/..."
   - "go build -o gongfuServer"
 
