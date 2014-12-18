@@ -1,6 +1,8 @@
 language: go
 go: 1.3
-install: "devops/go-packages.sh"
+install: 
+  - "cp -rf src/* /home/travis/gopath/src/."
+  - "devops/go-packages.sh"
 script:
   - "go test ./src/..."
   - "go build -o gongfuServer"
