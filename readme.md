@@ -1,5 +1,7 @@
 # Gongfu
 
+[![Gitter](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/kyledinh/gongfu?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 <img src="https://travis-ci.org/kyledinh/gongfu.svg" data-bindattr-14="14" title="Build Status Images">
 
 Gongfu is a mashup of Go and (ng) Angular used together to build a website. This template will get you started to build a Smart Angular Client and a RESTful API Go server with a Postgres database. This template uses Vagrant/VirtualBox to build a virtual environment and NodeJS/Grunt to do task building. The app is a simple Twitter clone that does registration and *chirps* (tweets). It uses a third-party muxer and implements TLS. Feel free to email me if you have an questions.
