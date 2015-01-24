@@ -1,0 +1,227 @@
+//
+// Custom
+// --------------------------------------------------
+
+h1 { font-size: 24px; text-transform: uppercase; }
+h2 { font-size: 20px; }
+h3 { font-size: 18px; }
+h4 { font-size: 16px; }
+h5 { font-size: 14px; }
+
+.navbar-brand {
+    padding: 2px 15px;
+}
+
+.navbar-brand img {
+    width:116px ; height: 45px; 
+}
+
+.navbar {
+  font-size: 14px;
+}
+
+// Sections Styles
+
+section h1, section h2 { text-align: center; }
+
+
+section#hero {
+  overflow:hidden;
+  height:auto;
+  background: url('../img/bg-sierra-mountains.jpg') fixed no-repeat; 
+  //background: url('../img/bg-needles-outpost.jpg') fixed no-repeat; 
+  height:100%;
+  min-height: 720px;
+  font-family: @font-family-sans-serif;
+  text-align: center;
+}
+
+section#hero h1 {
+  font-family: @font-logo;  
+  font-size: 44px;
+  color: @color-accent;
+}
+
+section#hero h2  {
+  font-family: @font-family-sans-serif;  
+  color: @gray-lighter;
+}
+
+section#hero #logo img {
+  margin-top: 20px;
+  width: 200px;
+  opacity: 0.7;
+}
+
+section#hero div#explore a {
+  font-size: 24px;  
+  color: @color-accent;
+}
+
+section#about a { 
+  color: @gray-light;
+}
+
+section#about a:hover { 
+  color: @color-accent;
+}
+
+section#about .social-icon {
+  margin: 0 10px 0 0;
+}
+
+section#product {  
+
+}
+
+section#company h1 {  
+  color: @gray-light;
+}
+
+section#plans {
+
+}
+
+
+section#contact {
+  //background-color: @gray-lighter;
+}
+
+section#contact input, section#contact textarea {
+  width: 100%;
+  float: left;
+  padding: 12px 10px 10px 16px;
+  margin-bottom: 8px;
+  font-size: 14px;
+  border: solid 1px @gray-light;
+  color: @gray-lighter;
+  background-color: @gray-light;
+}
+
+section#contact button {
+  background-color: @color-accent; 
+  color: @gray-lighter;
+}
+
+section#contact a {
+  color: @color-accent;
+}
+
+section#contact .google-maps {
+  position: relative;
+  padding-bottom: 75%; // This is the aspect ratio
+  height: 0;
+  overflow: hidden;
+}
+
+section#contact .google-maps iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100% !important;
+  height: 100% !important;
+}
+
+section#studio { 
+  padding-bottom: 0;
+  overflow:hidden;
+  background:#f2f2f2;
+}
+
+footer {
+  background-color: @gray-lighter;
+  color: @gray-light;
+}
+
+footer a { 
+  color: @gray-light;
+}
+
+footer a:hover { 
+  color: @color-accent;
+}
+
+footer ul {
+  list-style-type: none;
+  padding: 0; 
+  margin: 0;
+}
+
+footer .footer-logo img {
+  padding: 0px 100px 0px 60px;;
+  opacity: 0.5;
+}
+
+
+
+.swiper-slide:not(.swiper-slide-active) img{-webkit-filter: grayscale(100%);filter: url("data:image/svg+xml;filter: gray;utf8,<svg xmlns=\'http://www.w3.org/2000/svg\'><filter id=\'grayscale\'><feColorMatrix type=\'matrix\' values=\'0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0\'/></filter></svg>#grayscale");}
+
+/* Swiper - Mobile Touch Slider CSS 
+   http://www.idangero.us/sliders/swiper 
+*/
+   
+/* Swiper Styles */
+.swiper-container {position:relative;z-index:1;overflow:hidden;margin:0 auto;-webkit-backface-visibility:hidden;-moz-backface-visibility:hidden;-ms-backface-visibility:hidden;-o-backface-visibility:hidden;backface-visibility:hidden;/* Fix of Webkit flickering */}
+.swiper-wrapper {position:relative;width:100%;-webkit-transition-timing-function:ease;-moz-transition-timing-function:ease;-ms-transition-timing-function:ease;-o-transition-timing-function:ease;transition-timing-function:ease;-webkit-transition-duration:0s;-moz-transition-duration:0s;-ms-transition-duration:0s;-o-transition-duration:0s;transition-duration:0s;-webkit-transition-property:-webkit-transform, left, top;-moz-transition-property:-moz-transform, left, top;-ms-transition-property:-ms-transform, left, top;-o-transition-property:-o-transform, left, top;transition-property:transform, left, top;-webkit-transform:translate3d(0px,0,0);-moz-transform:translate3d(0px,0,0);-ms-transform:translate3d(0px,0,0);-o-transform:translate3d(0px,0,0);-o-transform:translate(0px,0px);transform:translate3d(0px,0,0);}
+.swiper-slide {float: left;}
+.swiper-slide img{width: 100%;}
+
+/* IE10 Windows Phone 8 Fixes */
+.swiper-wp8-horizontal {-ms-touch-action: pan-y;}
+.swiper-wp8-vertical {-ms-touch-action: pan-x;}
+
+/* Specify Swiper's Size: */
+.swiper-container, .swiper-slide {width: 100%;}
+.swiper-container{overflow: visible;margin: 0 auto;max-width: 670px;height: 50px;}
+
+
+div#swatches {
+  float: left;
+  max-height: 20px;
+  width: 20px;
+  margin-left: 0;
+  margin-right: 10px;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+div#swatches div {
+  float: left;
+  width: 10px;
+  height: 10px;
+}
+
+div#swatches div:nth-child(1) { background-color: @color-accent; }
+div#swatches div:nth-child(2) { background-color: @color-primary; }
+div#swatches div:nth-child(3) { background-color: @color-secondary; }
+div#swatches div:nth-child(4) { background-color: @color-tertiary; }
+
+
+// Extras
+
+.margin-bottom-20 {
+  margin-bottom: 20px;
+}
+
+.padding-vert-10 {
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.padding-vert-20 {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.padding-vert-40 {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.display-none {
+  display: none;
+}

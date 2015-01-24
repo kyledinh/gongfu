@@ -3,7 +3,25 @@ module.exports = function(grunt) {
 
     cfg: grunt.file.readJSON('cfg.json'),
 
-    clean: ['build/*', 'webapp/js/*'],
+    clean: ['build/*', 'dist/*', 'webapp/dist', 'webapp/js/*'],
+
+    autoprefixer: {
+      options: {
+        //browsers: configBridge.config.autoprefixerBrowsers
+      },
+      core: {
+        options: {
+          map: true
+        },
+        src: 'dist/css/<%= cfg.bootstrap %>.css'
+      },
+      theme: {
+        options: {
+          map: true
+        },
+        src: 'dist/css/<%= cfg.bootstrap %>-theme.css'
+      }
+    },
 
     compress: {
       main: {
@@ -21,9 +39,13 @@ module.exports = function(grunt) {
     },
 
     concat: {
-      options: { separator: '//' },
+      options: {
+        separator: ';',
+        banner: '',
+        stripBanners: false
+      },
       appjs: {
-        dest: 'webapp/js/app.js', 
+        dest: 'webapp/js/<%= cfg.appname %>-app.js', 
         src: [
           'src/angular/app.js',
           'src/angular/ctrl-*.js',
@@ -32,6 +54,25 @@ module.exports = function(grunt) {
           'src/angular/filters.js',          
           'src/angular/util.js'                   
         ]
+      },
+      bootstrap: {
+        src: [
+          'src/js/transition.js',
+          'src/js/alert.js',
+          'src/js/button.js',
+          'src/js/carousel.js',
+          'src/js/collapse.js',
+          'src/js/dropdown.js',
+          'src/js/modal.js',
+          'src/js/tooltip.js',
+          'src/js/popover.js',
+          'src/js/scrollspy.js',
+          'src/js/tab.js',
+          'src/js/affix.js',
+          'src/js/swiper-slide-1.9.3.js',
+          'src/js/jquery.easing.js'
+        ],
+        dest: 'dist/js/<%= cfg.bootstrap %>.js'
       },
       spec: {
         dest: 'webapp/js/app.js',
@@ -42,9 +83,45 @@ module.exports = function(grunt) {
       }
     }, 
 
+    copy: {
+      fonts: {
+        src: 'src/fonts/*',
+        dest: 'dist/'
+      },
+      dist_webapp_css: {
+        src: 'dist/css/*',
+        dest: 'webapp/css/',
+        flatten: true,
+        expand: true
+      },
+      dist_webapp_js: {
+        src: 'dist/js/*',
+        dest: 'webapp/js/',
+        flatten: true,
+        expand: true
+      }      
+    },
+
+    cssmin: {
+      options: {
+        compatibility: 'ie8',
+        keepSpecialComments: '*',
+        noAdvanced: true
+      },
+      minifyCore: {
+        src: 'dist/css/<%= cfg.bootstrap %>.css',
+        dest: 'dist/css/<%= cfg.bootstrap %>.min.css'
+      },
+      minifyTheme: {
+        src: 'dist/css/<%= cfg.bootstrap %>-theme.css',
+        dest: 'dist/css/<%= cfg.bootstrap %>-theme.min.css'
+      }
+    },
+
+
     go: {
       options: {
-	GOPATH: ["./", "/home/vagrant/code"]
+	       GOPATH: ["./", "/home/vagrant/code"]
       },
       myapp: {
         root: './', 
@@ -80,6 +157,31 @@ module.exports = function(grunt) {
 
     karma: {
       unit: { configFile: 'test/karma.conf.js' } 
+    },
+
+    less: {
+      compileCore: {
+        options: {
+          strictMath: true,
+          sourceMap: true,
+          outputSourceFiles: true,
+          sourceMapURL: '<%= cfg.appname %>.css.map',
+          sourceMapFilename: 'dist/css/<%= cfg.bootstrap %>.css.map'
+        },
+        src: 'src/less/bootstrap.less',
+        dest: 'dist/css/<%= cfg.bootstrap %>.css'
+      },
+      compileTheme: {
+        options: {
+          strictMath: true,
+          sourceMap: true,
+          outputSourceFiles: true,
+          sourceMapURL: '<%= cfg.bootstrap %>-theme.css.map',
+          sourceMapFilename: 'dist/css/<%= cfg.bootstrap %>-theme.css.map'
+        },
+        src: 'src/less/theme.less',
+        dest: 'dist/css/<%= cfg.bootstrap %>-theme.css'
+      }
     },
 
     protractor: {
@@ -160,10 +262,14 @@ module.exports = function(grunt) {
   });
 
   // Load JSHint task
+  grunt.loadNpmTasks('grunt-autoprefixer');
   grunt.loadNpmTasks('grunt-contrib-clean');
   grunt.loadNpmTasks('grunt-contrib-compress');
   grunt.loadNpmTasks('grunt-contrib-concat');
+  grunt.loadNpmTasks('grunt-contrib-copy');  
+  grunt.loadNpmTasks('grunt-contrib-cssmin');   
   grunt.loadNpmTasks('grunt-contrib-jshint');
+  grunt.loadNpmTasks('grunt-contrib-less');    
   grunt.loadNpmTasks('grunt-contrib-uglify');  
   grunt.loadNpmTasks('grunt-go');
   grunt.loadNpmTasks('grunt-karma');
@@ -191,6 +297,17 @@ module.exports = function(grunt) {
   grunt.registerTask('pglist', ['shell:psqllist']);
   grunt.registerTask('pgrebuild', ['shell:psqldrop', 'shell:psqlcreate']);
   grunt.registerTask('pgrestore', ['shell:psqlrestore']);
+
+  // JS distribution task.   , 'uglify:core'    , 'commonjs'
+  grunt.registerTask('dist-js', ['concat']);
+
+  // CSS distribution task.
+  grunt.registerTask('less-compile', ['less:compileCore', 'less:compileTheme']);
+  grunt.registerTask('dist-css', ['less-compile', 'autoprefixer:core', 'autoprefixer:theme', 'cssmin:minifyTheme']);
+
+  // Full distribution task.
+  grunt.registerTask('files', ['clean', 'dist-css', 'dist-js', 'copy:dist_webapp_css', 'copy:dist_webapp_js', 'copy:fonts', 'concat:appjs']);
+  //'copy:dist_webapps', 'copy:fonts',
 
   // default build is dev
   grunt.registerTask('build', ['dev']);

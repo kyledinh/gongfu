@@ -1,8 +1,18 @@
 language: go
 go: 1.3
+
 install: 
   - "cp -rf src/* /home/travis/gopath/src/."
   - "devops/go-packages.sh"
+
+addons:
+  postgresql: "9.3"
+
+before_script:
+  - "psql -c 'CREATE USER gongfu WITH PASSWORD kungfupanda;' -U postgres"
+  - "psql -c 'CREATE DATABASE gongfu WITH OWNER gongfu;' -U postgres"
+  - "psql gongfu -U gongfu < devops/sql/create_tables.sql"
+
 script:
   - "go test ./src/go/gongfu/cfg/..."
   - "go test ./src/go/gongfu/util/..."

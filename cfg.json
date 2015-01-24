@@ -1,5 +1,7 @@
 {
    "appname" : "gongfu",
+   "appversion" :  "0.1.0",
+   "bootstrap" : "gongfu-bootstrap",
    "http_port" : "",
    "server" : "localhost",
    "db_server" : "localhost",
