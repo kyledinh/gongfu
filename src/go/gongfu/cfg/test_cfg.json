@@ -1,9 +1,0 @@
-{
-   "appname" : "test-gongfu",
-   "http_port" : ":3000",
-   "server" : "test-gongfu",
-   "db_server" : "localhost",
-   "db_name" : "test-name",
-   "db_user" : "test-user",
-   "db_password" : "test-password"
-}
